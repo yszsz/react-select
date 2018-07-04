@@ -1837,6 +1837,8 @@ var Select$1 = function (_React$Component) {
 			var _this9 = this;
 
 			var valueArray = this.getValueArray(this.props.value);
+		        var item = valueArray[0] || {};
+		        var title = item.label || '';
 			var options = this._visibleOptions = this.filterOptions(this.props.multi && this.props.removeSelected ? valueArray : null);
 			var isOpen = this.state.isOpen;
 			if (this.props.multi && !options.length && valueArray.length && !this.state.inputValue) isOpen = false;
@@ -1890,7 +1892,8 @@ var Select$1 = function (_React$Component) {
 						onTouchEnd: this.handleTouchEnd,
 						onTouchMove: this.handleTouchMove,
 						onTouchStart: this.handleTouchStart,
-						style: this.props.style
+						style: this.props.style,
+					 	title: title
 					},
 					React__default.createElement(
 						'span',
